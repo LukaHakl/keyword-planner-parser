@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "keyword-planner-parser"
+version = "1.0.0"
+description = "Read Google Keyword Planner CSV exports without fighting the format: UTF-16, localised headers, bucketed volume ranges."
+requires-python = ">=3.11"
+# No dependencies, deliberately. This solves a file-format problem; needing
+# pandas to read a CSV would defeat the point.
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.setuptools.packages.find]
+include = ["keyword_planner*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
